@@ -44,4 +44,13 @@ public class MessageService {
 		return message.put(messages.getId(), messages);
 	}
 
+	public List<Message> getAllMessagePaginated(int start, int size) {
+		List<Message> list = new ArrayList<Message>(message.values());
+		if (start + size > list.size())
+			return new ArrayList<Message>();
+
+		return list.subList(start, start + size);
+
+	}
+
 }
