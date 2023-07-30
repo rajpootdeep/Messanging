@@ -90,4 +90,10 @@ public class MessageResource {
 		}
 		return service.getAllMessages();
 	}
+
+	@Path("/{messageId}")
+	public CommentResource getCommnetResource() {
+
+		return new CommentResource();
+	}
 }

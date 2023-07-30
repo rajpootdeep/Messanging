@@ -1,6 +1,9 @@
 package com.jersey.rest.messanging.model;
 
+import java.beans.Transient;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -12,6 +15,8 @@ public class Message {
 	private Date created;
 	private String author;
 
+	private Map<Integer, Comment> comments = new LinkedHashMap<Integer, Comment>();
+
 	public Message() {
 	}
 
@@ -21,6 +26,16 @@ public class Message {
 		this.message = message;
 		this.created = new Date();
 		this.author = author;
+	}
+
+	@Transient
+
+	public Map<Integer, Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Map<Integer, Comment> comments) {
+		this.comments = comments;
 	}
 
 	public Integer getId() {
